@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Router from './components/Router';
+import DropdownPage from './pages/DropdownPage';
+import ButtonsPage from './pages/ButtonsPage';
+import AccordionPage from './pages/AccordionPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Sidebar />
+      <Router to='/'>
+        <DropdownPage />
+      </Router>
+      <Router to='/buttons'>
+        <ButtonsPage />
+      </Router>
+      <Router to='/accordion'>
+        <AccordionPage />
+      </Router>
     </div>
   );
 }
