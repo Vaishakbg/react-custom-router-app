@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
+import propTypes from 'prop-types'
 
 function Button({
   children,
@@ -43,6 +44,21 @@ function Button({
   )
 }
 
+Button.propTypes={
+  checkVariationValue: ({ primary, secondary, success, warning, danger, info, light, dark }) => {
+    // console.log(props);
+    const count =
+      Number(!!primary) +
+      Number(!!secondary) +
+      Number(!!success) +
+      Number(!!warning) +
+      Number(!!info) +
+      Number(!!light) +
+      Number(!!dark) +
+      Number(!!danger);
 
+      if(count>1) return new Error('Only one of primary, secondary, success, warning, danger, light, info, dark can be true')
+  },
+}
 
 export default Button
