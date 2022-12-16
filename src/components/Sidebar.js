@@ -11,8 +11,8 @@ function Sidebar() {
 
   const renderedLinks = links.map((link) => {
     return <Link 
-      className="block"
-      activeLinkClass = "bg-gray-200 text-bold hover:bg-gray-200"
+      className="block border-l hover:bg-gray-50"
+      activeLinkClass = "text-bold text-blue-600 border-blue-600"
       key={link.label} 
       to={link.path}>
         {link.label}
