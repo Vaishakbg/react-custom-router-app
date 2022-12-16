@@ -12,15 +12,17 @@ function App() {
       <Sidebar />
       <div className="ml-72">
         <PageTitle />
-        <Router to="/">
-          <DropdownPage />
-        </Router>
-        <Router to="/buttons">
-          <ButtonsPage />
-        </Router>
-        <Router to="/accordion">
-          <AccordionPage />
-        </Router>
+        <main className="p-4">
+          <Router to="/">
+            <DropdownPage />
+          </Router>
+          <Router to="/buttons">
+            <ButtonsPage />
+          </Router>
+          <Router to="/accordion">
+            <AccordionPage />
+          </Router>
+        </main>
       </div>
     </div>
   );
