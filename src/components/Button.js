@@ -27,7 +27,6 @@ function Button({
       'border-green-500 bg-green-500 text-white':success,
       'border-red-500 bg-red-500 text-white':danger,
       'border-cyan-400 bg-cyan-500 text-white':info,
-      'border-white-500 bg-white-500 text-black':light,
       'border-stone-900 bg-stone-900 text-white':dark,
       'rounded-full': rounded,
       'bg-white': outline,
@@ -36,6 +35,8 @@ function Button({
       'text-yellow-500': outline && warning,
       'text-green-500': outline && success,
       'text-red-500': outline && danger,
+      'text-cyan-500': outline && info,
+      'text-stone-900': outline && dark,
     }
   )
 
@@ -45,7 +46,7 @@ function Button({
 }
 
 Button.propTypes={
-  checkVariationValue: ({ primary, secondary, success, warning, danger, info, light, dark }) => {
+  checkVariationValue: ({ primary, secondary, success, warning, danger, info, dark }) => {
     // console.log(props);
     const count =
       Number(!!primary) +
@@ -53,7 +54,6 @@ Button.propTypes={
       Number(!!success) +
       Number(!!warning) +
       Number(!!info) +
-      Number(!!light) +
       Number(!!dark) +
       Number(!!danger);
 
