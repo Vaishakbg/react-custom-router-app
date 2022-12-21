@@ -14,7 +14,8 @@ function DropdownPage() {
   }
   return (
     <div className='flex'>
-      <Dropdown options={options} value={selection} onChange={handleSelection} />
+      <Dropdown label="Select Color" options={options} value={selection} onChange={handleSelection} />
+      <Dropdown label="Select Color" options={options} value={selection} onChange={handleSelection} />
     </div>
   )
 }

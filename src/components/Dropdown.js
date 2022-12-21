@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import Panel from "./Panel";
 
-function Dropdown({ options, value, onChange }) {
+function Dropdown({ label, options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = ()=>{
@@ -24,7 +24,7 @@ function Dropdown({ options, value, onChange }) {
         className="flex justify-between items-center cursor-pointer"
         onClick={handleClick}
       >
-        {value?.name || "Select..."}
+        {value?.name || label}
         <GoChevronDown className="text-lg" />
       </Panel>
       {isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
