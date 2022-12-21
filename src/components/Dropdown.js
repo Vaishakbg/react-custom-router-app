@@ -1,25 +1,54 @@
-import React, { useState } from "react";
+import classNames from "classnames";
+import React, { useEffect, useRef, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import Panel from "./Panel";
 
 function Dropdown({ label, options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const divEl = useRef();
 
-  const handleClick = ()=>{
+  useEffect(() => {
+    const handler = (event) => {
+      if (!divEl.current) {
+        return;
+      }
+      if (!divEl.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handler, true);
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  }, []);
+
+  const handleClick = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   const handleOptionClick = (option) => {
     setIsOpen(false);
     onChange(option);
-  }
+  };
 
-  const renderedOptions = options.map((option)=> {
-    return <div className='hover:bg-sky-100 rounded cursor-pointer p-1' key={option.value} onClick={()=>handleOptionClick(option)}>{option.name}</div>
+  const renderedOptions = options.map((option) => {
+    const classes = classNames(
+      "hover:bg-sky-100 rounded cursor-pointer p-1",
+      (option.value === value?.value) && "bg-sky-100"
+    );
+    return (
+      <div
+        className={classes}
+        key={option.value}
+        onClick={() => handleOptionClick(option)}
+      >
+        {option.name}
+      </div>
+    );
   });
 
   return (
-    <div className="w-48 relative">
+    <div ref={divEl} className="w-48 relative">
       <Panel
         className="flex justify-between items-center cursor-pointer"
         onClick={handleClick}
