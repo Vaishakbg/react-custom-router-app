@@ -34,7 +34,7 @@ function Dropdown({ label, options, value, onChange }) {
   const renderedOptions = options.map((option) => {
     const classes = classNames(
       "hover:bg-sky-100 rounded cursor-pointer p-1",
-      (option.value === value?.value) && "bg-sky-100"
+      option.value === value?.value && "bg-sky-100"
     );
     return (
       <div
