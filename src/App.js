@@ -6,6 +6,7 @@ import ButtonsPage from "./pages/ButtonsPage";
 import AccordionPage from "./pages/AccordionPage";
 import PageTitle from "./pages/PageTitle";
 import ModalPage from "./pages/ModalPage";
+import TablePage from "./pages/TablePage";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Router>
           <Router to="/modal">
             <ModalPage />
+          </Router>
+          <Router to="/table">
+            <TablePage />
           </Router>
         </main>
       </div>
