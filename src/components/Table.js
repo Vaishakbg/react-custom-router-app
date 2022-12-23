@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ config, data, keyFn }) {
   const renderedHeaders = config.map((column) => {
-    return <th key={keyFn(column)}>{column.label}</th>;
+    return <th key={column.label}>{column.label}</th>;
   });
 
   const renderedRows = data.map((rowData) => {

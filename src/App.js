@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Router from "./components/Router";
 import DropdownPage from "./pages/DropdownPage";
@@ -9,10 +9,14 @@ import ModalPage from "./pages/ModalPage";
 import TablePage from "./pages/TablePage";
 
 function App() {
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const handleSidebarClick = ()=>{
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // }
   return (
     <div className="">
-      <Sidebar />
-      <div className="ml-72">
+      <Sidebar isSidebarOpen />
+      <div className={'ml-72'}>
         <PageTitle />
         <main className="p-4">
           <Router to="/">
